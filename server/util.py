@@ -1,6 +1,10 @@
 import json
 import pickle
 import numpy as np
+import sys
+import os
+#sys.path.append('../')
+from config.definitions import ROOT_DIR
 
 __model = None
 __columns = None
@@ -38,14 +42,13 @@ def predict_AQI(location, so2, nox, rspm, spm):
 
 def get_model():
     global __model
-    with open("pune_AQI_model.pkl", "rb") as file:
+    with open(os.path.join(ROOT_DIR, 'pune_AQI_model.pkl'), "rb") as file:
         __model = pickle.load(file)
 
 def get_columns():
     global __columns
-    with open("pune_AQI_columns.json", "r") as f:
+    with open(os.path.join(ROOT_DIR, 'pune_AQI_columns.json'), "r") as f:
         __columns = json.load(f)['feature_columns']
     
-
 #p = round(predict_AQI('Bhosari', 33, 70, 126, 394),2)
 #print(p)

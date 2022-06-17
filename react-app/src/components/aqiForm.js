@@ -18,6 +18,8 @@ function AqiForm() {
     const [spm, setSpm] = useState('');
     const [location, setLocation] = useState('Chinchwad');
     const [prediction, setPrediction] = useState(null);
+    let [color, setColor] = useState(null)
+    let [concern, setConcern] = useState(null)
 
     const handleInputChange = (e) => {
         const {id , value} = e.target;
@@ -59,9 +61,44 @@ function AqiForm() {
       .then(data => {
         console.log(data['estimated_aqi']);
         setPrediction(data['estimated_aqi']);
+        handleConcern(data['estimated_aqi']);
       });
+    }
+    const handleConcern  = async (prediction) => {
         /*console.log(so2,nox,rspm,spm,location);*/
-
+      if (prediction)
+    { 
+      if (prediction <= 50)
+      {
+        setColor('#41ad32')
+        setConcern('Good')
+      }
+      else if (prediction <= 100 && prediction > 50)
+      {
+      setColor('#d7de4b')
+      setConcern('Moderate')
+      }
+      else if (prediction <= 200 && prediction > 100)
+      {
+      setColor('#de664b')
+      setConcern('Poor')
+      }
+      else if (prediction <= 300 && prediction > 200)
+      {
+      setColor('#f051dd')
+      setConcern('Unhealthy')
+      }
+      else if (prediction <= 400 && prediction > 300)
+      {
+      setColor('#a24ad9')
+      setConcern('Severe')
+      }
+      else if (prediction <= 500 && prediction > 400)
+      {
+      setColor('#3d0114')
+      setConcern('Hazardous')
+      }
+    } 
     }
 
     return(
@@ -96,6 +133,7 @@ function AqiForm() {
           </div>
           <div className="prediction">
           {prediction && <span className='predictionText'><b>Estimated AQI: {prediction}</b></span>}
+          {prediction && <div className='color' style={{backgroundColor: color}}><span className='concern' style={{color: "black"}}>Level of Health Concern: {concern}</span></div>}
           </div>
         </form>
       </div>      

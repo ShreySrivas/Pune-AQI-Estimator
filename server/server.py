@@ -6,9 +6,10 @@ from fastapi.middleware.cors import CORSMiddleware
 import numpy as np
 import sys
 import util
+#from config.definitions import ROOT_DIR
+import os
 
-
-sys.path.append('../')
+#sys.path.append('../')
 #from PuneAQI.config.definitions import ROOT_DIR
 
 app = FastAPI()

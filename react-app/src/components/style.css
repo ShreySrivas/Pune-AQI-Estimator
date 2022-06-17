@@ -36,7 +36,17 @@ body{
 }
 
 .predictionText{
-    font-size: 170%
+    font-size: 170%;
+}
+
+.color{
+    text-align: center;
+    margin: 10px auto;
+}
+
+.concern{
+    font-size: 120%;
+    font-weight: bold;
 }
 
 .navbar-custom {

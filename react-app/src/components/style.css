@@ -1,0 +1,53 @@
+body{
+    background: #F2EBE9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7C3E66, #F2EBE9);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7C3E66, #F2EBE9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.form{
+    background-color: #F2EBE9;
+    border-radius: 5px;
+    width: 550px;
+    margin: 15px auto;
+    padding: 15px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    /* height: 600px; */
+}
+
+.form-body{
+    text-align: left;
+    padding: 2px 10px;
+}
+
+.form-body > *{
+    padding: 5px;
+}
+
+.footer{
+    text-align: center;
+}
+
+.prediction{
+    text-align: center;
+    margin: 15px auto;
+    padding: 0px;
+    border-radius: 0px;
+}
+
+.predictionText{
+    font-size: 170%
+}
+
+.navbar-custom {
+    background-color: #243A73;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #7C3E66;
+    border-color: #7C3E66;
+}
